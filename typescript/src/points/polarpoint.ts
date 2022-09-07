@@ -1,23 +1,14 @@
-interface PolarPoint {
-    len: number,
-    angle: number,
-    computeX: () => number
-    computeY: () => number
-}
-
-function newPolarPoint (len: number, angle: number): PolarPoint {
+import { Point } from "./point";
+function newPolarPoint (len: number, angle: number): Point {
     return {
-        len,
-        angle,
-
-        computeX: function (): number {
+        getX: function (): number {
             return Math.round(len * Math.cos(angle))
         },
 
-        computeY: function (): number {
+        getY: function (): number {
             return Math.round(len * Math.sin(angle))
         }
     }
 }
 
-export { PolarPoint, newPolarPoint }
+export { newPolarPoint }
